@@ -1,3 +1,4 @@
+
 const ProductData = {
     title: 'FitBit 19 - The Smartest Watch',
     description: 'Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor Lorem Ipsum dolor.',

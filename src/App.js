@@ -1,38 +1,50 @@
+// import logo from './logo.svg';
 import React, { Component } from 'react';
 
-import classes from './App.module.css';
-
-import ProductPreview from './ProductPreview';
-
+import classes from './App.module.css'; 
+import ProductData from './ProductData';
 import ProductDetails from './ProductDetails';
+import ProductPreview from './ProductPreview';
 import Topbar from './Topbar';
-import  ProductData from './ProductData';
+
 
 class App extends Component {
 
-  state = {
-    productData: ProductData
+  state= {
+    productData: ProductData,
+    currentPreviewImagePos: 0,
+    currentSelectdFeature: 0,
   }
 
-  render(){
+  onColorOptionClick = (pos) => {
+    this.setState({currentPreviewImagePos: pos});
+  }
 
+  onFeatureItemClick = (pos) => {
+    this.setState({currentSelectdFeature: pos})
+  }
+
+  render(){ 
     return (
       <div className="App">
           <Topbar />
-        
+
         <div className={classes.MainContainer}>
           <div className={classes.ProductPreview}>
-           <ProductPreview />
+            <ProductPreview currentPreviewImage={this.state.productData.colorOptions[this.state.currentPreviewImagePos].imgUrl}
+            currentSelectdFeature={this.state.currentSelectdFeature} />
           </div>
-  
+
           <div className={classes.ProductData}>
-            <ProductDetails data={this.state.productData} />
+            <ProductDetails data={this.state.productData} onColorOptionClick = {this.onColorOptionClick} 
+            currentPreviewImagePos={this.state.currentPreviewImagePos} onFeatureItemClick={this.onFeatureItemClick} 
+            currentSelectdFeature={this.state.currentSelectdFeature} />
           </div>
         </div>
       </div>
     );
 
-  }
+    }
 
 }
 

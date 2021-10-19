@@ -4,15 +4,12 @@ import classes from './Topbar.module.css';
 
 const Topbar = () => {
     return(
-        
-      <header>
+        <header>
         <nav className={classes.Topbar}>
-          <img src="amazon.png" alt="Amazon" />
+          <img src="https://i.dlpng.com/static/png/197684_preview.png" alt="" />
         </nav>
-        
-         </header>  
-
+        </header>
     )
-} 
+}
 
 export default Topbar;
